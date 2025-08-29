@@ -1,7 +1,19 @@
 body {
   font-family: "piepie", sans-serif;
+  background-color: #396679;
 }
 
 h1 {
   font-family: "piepie", cursive;
+  color: #F8E2B4;
+}
+
+h2 {
+  font-family: "piepie", cursive;
+  color: #F8E2B4;
+}
+
+p {
+  font-family: "piepie", cursive;
+  color: #F8E2B4;
 }
