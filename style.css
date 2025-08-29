@@ -1,19 +1,42 @@
 body {
-  font-family: "piepie", sans-serif;
-  background-color: #396679;
+  font-family: "piepie", sans-serif; /* Adobe font */
+  background: #396679;
+  color: #333;
+  padding: 20px;
 }
 
 h1 {
-  font-family: "piepie", cursive;
-  color: #F8E2B4;
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #2c3e50;
 }
 
-h2 {
-  font-family: "piepie", cursive;
-  color: #F8E2B4;
+#timetable .grid {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr; /* Time | Info | Place */
+  grid-auto-rows: minmax(80px, auto); /* flexible row height */
+  gap: 20px; /* spacing without lines */
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-p {
-  font-family: "piepie", cursive;
-  color: #F8E2B4;
+.cell {
+  padding: 10px;
+  background: #396679;
+  border-radius: 10px;
+}
+
+.time {
+  font-weight: bold;
+  text-align: center;
+}
+
+.info {
+  line-height: 1.5;
+}
+
+.place {
+  font-style: italic;
+  text-align: center;
 }
