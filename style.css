@@ -1,42 +1,69 @@
 body {
   font-family: "piepie", sans-serif; /* Adobe font */
   background: #396679;
-  color: #333;
-  padding: 20px;
+  color: #F8E2B4;
+  padding: 0;
+  margin: 0;
+  line-height: 1.3;
 }
 
 h1 {
   text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 30px;
-  color: #2c3e50;
+  font-size: 6.5rem;
+  letter-spacing: 2px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  color: #F8E2B4;
 }
 
 #timetable .grid {
   display: grid;
-  grid-template-columns: 1fr 3fr 1fr; /* Time | Info | Place */
-  grid-auto-rows: minmax(80px, auto); /* flexible row height */
-  gap: 20px; /* spacing without lines */
-  max-width: 900px;
+  grid-template-columns: 1.5fr 2.5fr 1.5fr; /* Time | Info | Place */
+  grid-auto-rows: minmax(40px, auto); /* flexible row height */
+  gap: 0px; /* spacing without lines */
+  max-width: 800px;
   margin: 0 auto;
 }
 
+/* Span Classes x3 */
+.session-title {
+  color: #F5B75B;   
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.all_artists,
+.all_welcome {  
+  text-align: right;
+  font-size: 1.3rem;      
+  margin: 0;            
+}
+
+.all_artists {
+  color: #F5B75B;      
+}
+
 .cell {
-  padding: 10px;
+  padding: 0px;
   background: #396679;
-  border-radius: 10px;
+  border-radius: 0px;
 }
 
 .time {
+  font-size: 1.2rem;
   font-weight: bold;
-  text-align: center;
+  text-align: left;
+  color: #F8E2B4;
 }
 
 .info {
-  line-height: 1.5;
+  text-align: left;
+  font-size: 0.8rem;
 }
 
-.place {
-  font-style: italic;
-  text-align: center;
+.place { 
+  font-size: 1.2rem;
+  text-align: left; 
+  color: #F8E2B4; 
+  padding-left: 2rem;
 }
