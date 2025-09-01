@@ -135,6 +135,8 @@ body {
   width: 150px;          
   text-align: center;    
   z-index: 1000;
+  background-color: #F8E2B4;
+  border-radius: 0.5em;
 }
 
 #qr-code {
@@ -142,13 +144,14 @@ body {
   height: 150px;
   display: block;
   margin: 0 auto;
-  border-radius: 1.8em;
+  border-radius: 0.5em;
 }
 
 #qr-text {
   font-size: 1.2rem;    
-  color: #F5B75B;         
-  margin-top: 5px;       
+  color: #396679;         
+  margin-top: 2px;
+  margin-bottom: 10px;       
   line-height: 1.2;
 }
 
