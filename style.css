@@ -111,19 +111,30 @@ body {
 /* Now on Text*/
 
 .cell.time {
-  position: relative; 
+  position: relative; /* container for absolute label */
+}
+
+.time-text {
+  display: inline-block; /* allows label to position relative to this */
+  position: relative;
 }
 
 .now-on-label {
   position: absolute;
-  left: -7rem;        
-  top: 45%;
-  transform: translateY(-50%);
-  font-size: 1.2rem;  
+  left: -7rem; /* same offset */
+  top: 0;      /* aligns with top of time-text */
+  font-size: 1.2rem;
   font-weight: bold;
-  color: #F7A278;     
-  white-space: nowrap; 
+  color: #F7A278;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.5s ease;
 }
+
+.now-on-label.show {
+  opacity: 1;
+}
+
 
 
 /* QR Code */

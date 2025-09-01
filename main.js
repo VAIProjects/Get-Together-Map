@@ -1,3 +1,15 @@
+// Convert a "HH:MM" string to total minutes
+function toMinutes(timeStr) {
+  timeStr = timeStr.trim(); // remove any extra whitespace
+  const [hours, minutes] = timeStr.split(':').map(Number);
+  return hours * 60 + minutes;
+}
+
+// Example usage later:
+updateNowOnLabels();
+updateActiveRows();
+
+
 function formatClock(date) {
   // 12-hour format with AM/PM to match your timetable style
   let hours = date.getHours();
@@ -123,17 +135,26 @@ function updateNowOnLabels() {
       }
     }
 
-    // Add/remove the "Now on:" label
-    if (isActive) {
-      if (!timeCell.querySelector('.now-on-label')) {
-        const label = document.createElement('span');
-        label.className = 'now-on-label';
-        label.textContent = 'Now on:';
-        timeCell.appendChild(label);
-      }
+    // Find the span containing the time text
+    const timeText = timeCell.querySelector('.time-text');
+    if (!timeText) return;
+
+    // Add the "Now on:" label if it doesn't exist
+    let label = timeText.querySelector('.now-on-label');
+    if (!label) {
+      label = document.createElement('span');
+      label.className = 'now-on-label';
+      label.textContent = 'Now on:';
+      timeText.appendChild(label);
+      // Trigger fade-in
+      requestAnimationFrame(() => label.classList.add('show'));
     } else {
-      const existingLabel = timeCell.querySelector('.now-on-label');
-      if (existingLabel) existingLabel.remove();
+      // Toggle fade class
+      if (isActive) {
+        label.classList.add('show');
+      } else {
+        label.classList.remove('show');
+      }
     }
   });
 }
@@ -143,4 +164,7 @@ updateNowOnLabels();
 
 // Update every minute
 setInterval(updateNowOnLabels, 60 * 1000);
+
+
+
 
