@@ -126,3 +126,29 @@ body {
 }
 
 
+/* QR Code */
+
+#qr-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 150px;          
+  text-align: center;    
+  z-index: 1000;
+}
+
+#qr-code {
+  width: 150px;
+  height: 150px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 1.8em;
+}
+
+#qr-text {
+  font-size: 1.2rem;    
+  color: #F5B75B;         
+  margin-top: 5px;       
+  line-height: 1.2;
+}
+
