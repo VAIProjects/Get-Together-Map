@@ -7,13 +7,32 @@ body {
   line-height: 1;
 }
 
-h1 {
-  font-size: 6vw;        /* 4% of viewport width */
-  text-align: center;
-  letter-spacing: 0.25vw;
-  padding-top: 1vw;
-  margin-bottom: 0;
+.header-row {
+  position: relative;
+  display: flex;
+  justify-content: center; /* center h1 */
+  align-items: center;
+  padding-top: 2rem;
+}
+
+.header-row h1 {
+  font-size: 6.8rem;
+  letter-spacing: 4px;
+  margin: 0;
   color: #F8E2B4;
+  text-align: center;
+}
+
+.live-clock {
+  position: absolute;
+  right: 3rem;   /* keep it on the far right */
+  top: 50%;
+  transform: translateY(-50%); /* vertical center with the h1 */
+  font-size: 3rem;
+  font-weight: 700;
+  color: #F8E2B4;
+  letter-spacing: 0.5px;
+  pointer-events: none;
 }
 
 #timetable-wrapper {
