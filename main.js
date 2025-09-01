@@ -60,3 +60,87 @@ updateActiveRows();
 // Update every minute
 setInterval(updateActiveRows, 60 * 1000);
 
+//Test for Title
+
+function updateActiveSessions() {
+  const now = new Date();
+  const currentMinutes = now.getHours() * 60 + now.getMinutes();
+
+  document.querySelectorAll('.cell.time[data-start][data-end]').forEach(timeCell => {
+    const starts = timeCell.getAttribute('data-start').split(',');
+    const ends = timeCell.getAttribute('data-end').split(',');
+
+    let isActive = false;
+
+    for (let i = 0; i < starts.length; i++) {
+      const startMinutes = toMinutes(starts[i]);
+      const endMinutes = toMinutes(ends[i]);
+
+      if (currentMinutes >= startMinutes && currentMinutes <= endMinutes) {
+        isActive = true;
+        break;
+      }
+    }
+
+    // Find the session-title in the next .cell.info sibling
+    const infoCell = timeCell.nextElementSibling;
+    if (infoCell && infoCell.classList.contains('info')) {
+      const sessionTitle = infoCell.querySelector('.session-title');
+      if (sessionTitle) {
+        if (isActive) {
+          sessionTitle.classList.add('active-session');
+        } else {
+          sessionTitle.classList.remove('active-session');
+        }
+      }
+    }
+  });
+}
+
+// Run once immediately
+updateActiveSessions();
+
+// Update every minute
+setInterval(updateActiveSessions, 60 * 1000);
+
+function updateNowOnLabels() {
+  const now = new Date();
+  const currentMinutes = now.getHours() * 60 + now.getMinutes();
+
+  document.querySelectorAll('.cell.time[data-start][data-end]').forEach(timeCell => {
+    const starts = timeCell.getAttribute('data-start').split(',');
+    const ends   = timeCell.getAttribute('data-end').split(',');
+
+    let isActive = false;
+
+    for (let i = 0; i < starts.length; i++) {
+      const startMinutes = toMinutes(starts[i]);
+      const endMinutes   = toMinutes(ends[i]);
+
+      if (currentMinutes >= startMinutes && currentMinutes <= endMinutes) {
+        isActive = true;
+        break;
+      }
+    }
+
+    // Add/remove the "Now on:" label
+    if (isActive) {
+      if (!timeCell.querySelector('.now-on-label')) {
+        const label = document.createElement('span');
+        label.className = 'now-on-label';
+        label.textContent = 'Now on:';
+        timeCell.appendChild(label);
+      }
+    } else {
+      const existingLabel = timeCell.querySelector('.now-on-label');
+      if (existingLabel) existingLabel.remove();
+    }
+  });
+}
+
+// Run once immediately
+updateNowOnLabels();
+
+// Update every minute
+setInterval(updateNowOnLabels, 60 * 1000);
+

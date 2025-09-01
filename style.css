@@ -99,7 +99,30 @@ body {
 
 /* Live Time Change */
 .active-row {
-  color: #F5B75B;
+  color: #F7A278;
   font-weight: bold;
 }
+
+.active-session {
+  color: #F7A278; /* soft mint/aqua */
+  font-weight: bold;
+}
+
+/* Now on Text*/
+
+.cell.time {
+  position: relative; /* make the time cell the positioning context */
+}
+
+.now-on-label {
+  position: absolute;
+  left: -4rem;        /* adjust spacing to sit left of the time */
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.8rem;  /* smaller than the time text */
+  font-weight: bold;
+  color: #7BD5D2;     /* your highlight color */
+  white-space: nowrap; /* keep label on one line */
+}
+
 
