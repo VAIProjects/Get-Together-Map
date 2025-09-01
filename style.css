@@ -7,17 +7,18 @@ body {
   line-height: 1;
 }
 
+/* Header */
 .header-row {
   position: relative;
   display: flex;
   justify-content: center; /* center h1 */
   align-items: center;
-  padding-top: 2rem;
+  padding-top: 1vh;
 }
 
 .header-row h1 {
-  font-size: 6.8rem;
-  letter-spacing: 4px;
+  font-size: 6vw; /* scales with screen width */
+  letter-spacing: 0.3vw;
   margin: 0;
   color: #F8E2B4;
   text-align: center;
@@ -25,42 +26,41 @@ body {
 
 .live-clock {
   position: absolute;
-  right: 3rem;   /* keep it on the far right */
+  right: 3vw;   
   top: 50%;
-  transform: translateY(-50%); /* vertical center with the h1 */
-  font-size: 3rem;
+  transform: translateY(-50%);
+  font-size: 3vw;
   font-weight: 700;
   color: #F8E2B4;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.05vw;
   pointer-events: none;
 }
 
+/* Wrapper */
 #timetable-wrapper {
   width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #396679; /* same as body */
-  overflow: hidden;     /* prevents scrollbars */
+  background: #396679; 
+  overflow: hidden;
 }
 
 #timetable {
-  /* Original design size on 1920x1080 */
-  width: 1920px;
-  height: 1080px;
-
-  /* Scale to fit screen while maintaining aspect ratio */
-  transform: scale(calc(100vw / 1920));
-  transform-origin: top left; /* scale from top left corner */
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items:flex-start;
 }
 
 #timetable .grid {
   display: grid;
-  grid-template-columns: 1.4fr 1.9fr 1.5fr; /* Time | Info | Place */
-  grid-auto-rows: minmax(40px, auto); /* flexible row height */
-  gap: 0px; /* spacing without lines */
-  max-width: 800px;
+  grid-template-columns: 12vw 19vw 8vw; /* Time | Info | Place */
+  grid-auto-rows: minmax(4vh, auto); 
+  gap: 0px; 
+  max-width: 80vw;
   margin: 0 auto;
 }
 
@@ -68,18 +68,17 @@ body {
 .session-title {
   color: #F5B75B;   
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 1vw;
 }
 
-
 .cell {
-  padding-top: 0.5rem;
+  padding-top: 0.5vh;
   background: #396679;
   border-radius: 0px;
 }
 
 .time {
-  font-size: 1.2rem;
+  font-size: 1vw;
   font-weight: bold;
   text-align: left;
   color: #F8E2B4;
@@ -87,14 +86,14 @@ body {
 
 .info {
   text-align: left;
-  font-size: 0.8rem;
+  font-size: 0.8vw;
 }
 
 .place { 
-  font-size: 1.2rem;
+  font-size: 1vw;
   text-align: left; 
   color: #F8E2B4; 
-  padding-left: 2rem;
+  padding-left: 2vw;
 }
 
 /* Live Time Change */
@@ -108,22 +107,21 @@ body {
   font-weight: bold;
 }
 
-/* Now on Text*/
-
+/* Now on Text */
 .cell.time {
-  position: relative; /* container for absolute label */
+  position: relative; 
 }
 
 .time-text {
-  display: inline-block; /* allows label to position relative to this */
+  display: inline-block; 
   position: relative;
 }
 
 .now-on-label {
   position: absolute;
-  left: -7rem; /* same offset */
-  top: 0;      /* aligns with top of time-text */
-  font-size: 1.2rem;
+  left: -7vw; 
+  top: 0;    
+  font-size: 1vw;
   font-weight: bold;
   color: #F7A278;
   white-space: nowrap;
@@ -135,34 +133,31 @@ body {
   opacity: 1;
 }
 
-
-
 /* QR Code */
-
 #qr-container {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 150px;          
+  bottom: 2vh;
+  right: 2vw;
+  width: 8vw;          
   text-align: center;    
   z-index: 1000;
   background-color: #F8E2B4;
   border-radius: 0.5em;
+  padding: 0.5vh;
 }
 
 #qr-code {
-  width: 150px;
-  height: 150px;
+  width: 100%;
+  height: auto;
   display: block;
   margin: 0 auto;
   border-radius: 0.5em;
 }
 
 #qr-text {
-  font-size: 1.2rem;    
+  font-size: 1vw;    
   color: #396679;         
-  margin-top: 2px;
-  margin-bottom: 10px;       
+  margin-top: 0.5vh;
+  margin-bottom: 1vh;       
   line-height: 1.2;
 }
-
