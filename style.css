@@ -104,25 +104,25 @@ body {
 }
 
 .active-session {
-  color: #F7A278; /* soft mint/aqua */
+  color: #F7A278; 
   font-weight: bold;
 }
 
 /* Now on Text*/
 
 .cell.time {
-  position: relative; /* make the time cell the positioning context */
+  position: relative; 
 }
 
 .now-on-label {
   position: absolute;
-  left: -4rem;        /* adjust spacing to sit left of the time */
-  top: 50%;
+  left: -7rem;        
+  top: 45%;
   transform: translateY(-50%);
-  font-size: 0.8rem;  /* smaller than the time text */
+  font-size: 1.2rem;  
   font-weight: bold;
-  color: #7BD5D2;     /* your highlight color */
-  white-space: nowrap; /* keep label on one line */
+  color: #F7A278;     
+  white-space: nowrap; 
 }
 
 
