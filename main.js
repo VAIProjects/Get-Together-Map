@@ -17,3 +17,33 @@ function updateClock() {
 // Kick off and keep ticking
 updateClock();
 setInterval(updateClock, 1000);
+
+// Live Time Colour Change
+
+function toMinutes(timeStr) {
+  const [hours, minutes] = timeStr.split(':').map(Number);
+  return hours * 60 + minutes;
+}
+
+function updateActiveRows() {
+  const now = new Date();
+  const currentMinutes = now.getHours() * 60 + now.getMinutes();
+
+  document.querySelectorAll('.cell.time[data-start][data-end]').forEach(cell => {
+    const startMinutes = toMinutes(cell.getAttribute('data-start'));
+    const endMinutes = toMinutes(cell.getAttribute('data-end'));
+
+    if (currentMinutes >= startMinutes && currentMinutes <= endMinutes) {
+      cell.classList.add('active-row');
+    } else {
+      cell.classList.remove('active-row');
+    }
+  });
+}
+
+// Run once immediately
+updateActiveRows();
+
+// Update every minute
+setInterval(updateActiveRows, 60 * 1000);
+

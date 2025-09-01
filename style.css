@@ -96,3 +96,10 @@ body {
   color: #F8E2B4; 
   padding-left: 2rem;
 }
+
+/* Live Time Change */
+.active-row {
+  color: #F5B75B;
+  font-weight: bold;
+}
+
