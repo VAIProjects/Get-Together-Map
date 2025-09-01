@@ -30,16 +30,29 @@ function updateActiveRows() {
   const currentMinutes = now.getHours() * 60 + now.getMinutes();
 
   document.querySelectorAll('.cell.time[data-start][data-end]').forEach(cell => {
-    const startMinutes = toMinutes(cell.getAttribute('data-start'));
-    const endMinutes = toMinutes(cell.getAttribute('data-end'));
+    const starts = cell.getAttribute('data-start').split(',');
+    const ends   = cell.getAttribute('data-end').split(',');
 
-    if (currentMinutes >= startMinutes && currentMinutes <= endMinutes) {
+    let isActive = false;
+
+    for (let i = 0; i < starts.length; i++) {
+      const startMinutes = toMinutes(starts[i]);
+      const endMinutes   = toMinutes(ends[i]);
+
+      if (currentMinutes >= startMinutes && currentMinutes <= endMinutes) {
+        isActive = true;
+        break; // no need to check other ranges
+      }
+    }
+
+    if (isActive) {
       cell.classList.add('active-row');
     } else {
       cell.classList.remove('active-row');
     }
   });
 }
+
 
 // Run once immediately
 updateActiveRows();
